@@ -5,8 +5,8 @@ An unofficial Freesound CLI for people and coding agents. Search sounds, inspect
 Requires Node.js 22+; also tested with Bun. Freesound is not affiliated with this project.
 
 ```sh
-npx fsnd --help
-bunx fsnd --help
+npx @ricky9w/fsnd --help
+bunx @ricky9w/fsnd --help
 fsnd search "gentle rain" --filter 'duration:[30 TO 300]' --limit 5
 fsnd details 12345
 fsnd download 12345 --preview --output ./rain-preview.mp3
