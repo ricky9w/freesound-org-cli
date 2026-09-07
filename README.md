@@ -13,7 +13,7 @@ fsnd download 12345 --preview --output ./rain-preview.mp3
 fsnd download 12345 --output ./rain.wav
 ```
 
-The npm examples apply after registry publication. From a checkout: `npm ci && npm run build`, then `node dist/index.js --help`.
+From a checkout: `npm ci && npm run build`, then `node dist/index.js --help`.
 
 ## Authentication
 

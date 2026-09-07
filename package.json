@@ -1,6 +1,6 @@
 {
   "name": "fsnd",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "type": "module",
   "description": "Freesound search, OAuth and downloads for humans and agents",
