@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { defineCommand } from "citty";
+import packageInfo from "../package.json";
 import { execute } from "./command.js";
 import { readFile } from "node:fs/promises";
 import { parse } from "dotenv";
@@ -31,7 +32,7 @@ const idArg = {
 export const main = defineCommand({
   meta: {
     name: "fsnd",
-    version: "0.1.0",
+    version: packageInfo.version,
     description:
       "Search and download Freesound audio. OAuth login, clean JSON, source metadata.",
   },
@@ -259,7 +260,7 @@ async function start() {
       if (process.env[key] === undefined) process.env[key] = value;
   }
   if (raw.includes("--version") || raw.includes("-v")) {
-    console.log("0.1.0");
+    console.log(packageInfo.version);
     return;
   }
   await execute(main, raw, "fsnd");

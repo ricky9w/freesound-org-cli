@@ -32,7 +32,8 @@ jobs:
           npm pack --ignore-scripts --pack-destination "$RUNNER_TEMP"
           mkdir "$RUNNER_TEMP/packed"
           tar -xzf "$RUNNER_TEMP/fsnd-"*.tgz -C "$RUNNER_TEMP/packed"
-          node "$RUNNER_TEMP/packed/package/dist/index.js" --version
+          test "$(node "$RUNNER_TEMP/packed/package/dist/index.js" --version)" = "${GITHUB_REF_NAME#v}"
+          test "$(bun "$RUNNER_TEMP/packed/package/dist/index.js" --version)" = "${GITHUB_REF_NAME#v}"
           bun "$RUNNER_TEMP/packed/package/dist/index.js" doctor --json
       - name: Publish with OIDC and provenance
         run: npm publish --access public --provenance --ignore-scripts
