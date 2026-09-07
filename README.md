@@ -4,11 +4,11 @@ An unofficial Freesound CLI for people and coding agents. Search sounds, inspect
 
 Requires Node.js 22+; also tested with Bun. Freesound is not affiliated with this project.
 
-The npm package is `@ricky9w/fsnd`; its installed command is `fsnd`. For a persistent installation: `npm install --global @ricky9w/fsnd`. The unscoped name `fsnd` is unavailable under npm’s package-name similarity policy.
+The npm package is `freesound-org-cli`; its installed command is `fsnd`. For a persistent installation: `npm install --global freesound-org-cli`.
 
 ```sh
-npx @ricky9w/fsnd --help
-bunx @ricky9w/fsnd --help
+npx freesound-org-cli --help
+bunx freesound-org-cli --help
 fsnd search "gentle rain" --filter 'duration:[30 TO 300]' --limit 5
 fsnd details 12345
 fsnd download 12345 --preview --output ./rain-preview.mp3
