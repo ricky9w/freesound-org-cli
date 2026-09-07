@@ -29,4 +29,6 @@ git push origin vX.Y.Z
 
 Inspect the Publish run and `npm view @ricky9w/fsnd@X.Y.Z dist.attestations --json`; install from the registry and run `npm audit signatures` to verify attestations. Published versions are immutable. If a run fails, inspect whether the registry already contains the version before retrying.
 
-The first 0.1.0 publication bootstraps package ownership locally; 0.1.1 stopped at the isolated package smoke check before publication; 0.1.2 is the first planned OIDC/provenance release. Freesound service limitations are documented separately from package-release verification.
+The first 0.1.0 publication bootstraps package ownership locally; 0.1.1 stopped at the isolated package smoke check before publication; 0.1.2 is the first verified OIDC/provenance release. Freesound service limitations are documented separately from package-release verification.
+
+Verified 2026-09-08: [Publish run](https://github.com/ricky9w/freesound-org-cli/actions/runs/34161095927), [Sigstore entry](https://search.sigstore.dev/?logIndex=2753279710). Registry installs through npx and bunx report 0.1.2; `npm audit signatures` verifies registry signatures and attestations.

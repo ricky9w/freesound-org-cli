@@ -4,6 +4,8 @@ An unofficial Freesound CLI for people and coding agents. Search sounds, inspect
 
 Requires Node.js 22+; also tested with Bun. Freesound is not affiliated with this project.
 
+The npm package is `@ricky9w/fsnd`; its installed command is `fsnd`. For a persistent installation: `npm install --global @ricky9w/fsnd`. The unscoped name `fsnd` is unavailable under npm’s package-name similarity policy.
+
 ```sh
 npx @ricky9w/fsnd --help
 bunx @ricky9w/fsnd --help
