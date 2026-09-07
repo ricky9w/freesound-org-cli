@@ -1,0 +1,44 @@
+{
+  "name": "fsnd",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Freesound search, OAuth and downloads for humans and agents",
+  "bin": {
+    "fsnd": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "skills",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "check": "npm run typecheck && npm test && npm run build",
+    "prepublishOnly": "npm run check"
+  },
+  "dependencies": {
+    "citty": "0.2.2",
+    "@clack/prompts": "1.7.0",
+    "picocolors": "1.1.1",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "@types/node": "^22.19.0",
+    "tsx": "^4.21.0",
+    "tsup": "^8.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricky9w/freesound-org-cli.git"
+  },
+  "license": "MIT"
+}
