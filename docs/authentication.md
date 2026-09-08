@@ -23,7 +23,7 @@ Noninteractive login prints the URL to stderr and waits for callback; it does no
 
 Freesound's documentation shows client-secret exchange. Its public source at commit `829678a193973c454750545986d832e191955600` registers public clients, uses django-oauth-toolkit 3.0.1 and disables mandatory PKCE while supporting it. An isolated test using that validator and dependency version verified dynamic loopback ports, S256 exchange without secret, refresh without secret and rejection of an incorrect verifier. fsnd additionally tests the actual local HTTP callback and concurrent refresh behavior.
 
-This is not a production end-to-end certification. The live service currently fails normal TLS certificate validation in both Node and Python in the development environment; production login and new-client registration remain to be verified after normal HTTPS connectivity is restored. Do not disable TLS checks. No shared production client ID is distributed in this release.
+Normal HTTPS connectivity was restored on 2026-09-08, and `fsnd doctor --online --auth oauth` succeeded with existing OAuth credentials. A newly registered application's complete PKCE/browser login still needs production verification; the local tests above do not establish that end-to-end result. Do not disable TLS checks. No shared production client ID is distributed in this release.
 
 Sources: https://freesound.org/docs/api/authentication.html ; https://github.com/MTG/freesound/blob/829678a193973c454750545986d832e191955600/apiv2/models.py ; https://github.com/MTG/freesound/blob/829678a193973c454750545986d832e191955600/freesound/settings.py
 
@@ -52,4 +52,4 @@ Configuration defaults to `${XDG_CONFIG_HOME:-~/.config}/fsnd`; override with `F
 
 `auth logout` deletes local OAuth tokens only. Saved API keys remain usable when key mode is selected or auto has no OAuth login. Revoke server authorization separately at https://freesound.org/home/app_permissions/ .
 
-For API-key-only use, set `FREESOUND_API_KEY` via an explicit env file, then run `fsnd doctor --online --auth key`.
+For API-key-only use, set `FREESOUND_API_KEY` via an explicit env file, then run `fsnd doctor --online --auth key --env-file PATH`. Pass `--auth key --env-file PATH` on subsequent commands too; a local `.env` file is not loaded automatically. See the [README walkthrough](../README.md#option-b-api-key--search-and-previews).
